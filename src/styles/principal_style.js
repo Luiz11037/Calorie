@@ -1,141 +1,142 @@
+// principal_style.js
+
 import { StyleSheet, Dimensions } from "react-native";
 
-//Adquirindo a largura e altura da tela, para criarmos bordas responsivas
 const widthDimension = Dimensions.get('window').width;
-const heitghDimension = Dimensions.get('window').height;
-
-//Criando a constante(variável) borderRadius para utilizá-la como valor nas bordas.
 const borderRadius = widthDimension * 0.15;
-//Criando a constante(variável) borderRadius para utilizá-la como valor nas bordas.
-const borderWidth = widthDimension * 0.015
+const borderWidth = widthDimension * 0.015;
 
-
-//Criando o estilo da screen "principal"
 const principal_style = StyleSheet.create({
+  principal_screen: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
+  container: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+
+  },
+  map: {
+    width: '100%',
+    height: '100%',
+  },
+  buttonContainer: {
+    width: '50%',
+    height: '10%',
+    position: 'absolute',
+    zIndex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  testButton: {
     
-    principal_screen: {
-        flex: 1,
-        justifyContent: 'center',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
+    width: '100%',
+    height: '100%',
+    padding: 10,
+    borderTopWidth: 5,
+    borderTopColor: 'black',
+    borderBottomEndRadius: borderRadius * 2,
+    borderBottomStartRadius: borderRadius * 2,
+    justifyContent: 'center',
+    alignItems: 'center',
 
-    map_area: {                 //Irmão de hud
-        flex: 6,
-        width: '100%',
-        alignItems: 'center',
-    },
+    backgroundColor: '#F92323',
+  },
 
-//////////////// Área do HUD ////////////////
+  map_area: {
+    flex: 6,
+    width: '100%',
+    alignItems: 'center',
+  },
 
+  hud_area: {
+    flex: 1,
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderTopWidth: borderWidth + 2,
+    borderTopLeftRadius: borderRadius / 8,
+    borderTopRightRadius: borderRadius / 8,
+    borderColor: '#F92323',
+    borderStyle: 'dotted',
+    backgroundColor: 'white',
+  },
 
-    hud_area: {
-        flex: 1,            //Irmão de map_area
-        width: 'auto',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-        flexDirection: 'row',
+  infos_area: {
+    flex: 3,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '2%',
+    backgroundColor: '#F92323',
+  },
 
-        borderTopWidth: borderWidth + 2,
-        borderTopLeftRadius: borderRadius/8,
-        borderTopRightRadius: borderRadius/8,
+  info_km_area_black: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: "column",
+    backgroundColor: 'black',
+    borderRadius: borderRadius,
+  },
 
-        borderColor: '#F92323' ,
-        borderStyle: 'dotted',
+  info_text: {
+    fontSize: borderRadius / 2.9,
+    fontWeight: '300',
+    color: '#FFF',
+  },
 
-        backgroundColor: 'white',
-    },
+  info_area_border_right: {
+    borderTopRightRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
+  },
 
-//////////////// Área das info (00:00 & 00Km) ////////////////
+  info_area_border_left: {
+    borderTopLeftRadius: borderRadius,
+    borderBottomLeftRadius: borderRadius,
+  },
 
-    infos_area: {
-        flex: 3,
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2%',
+  player_area: {
+    flex: 3,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: '2.5%',
+  },
 
-        backgroundColor: '#F92323',
-        //F92323
-    },
+  circle_player: {
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '6%',
+    borderBottomWidth: borderWidth,
+    borderRadius: borderRadius,
+    backgroundColor: '#F92323',
+  },
 
+  button: {
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
 
-    info_km_area_black: {
-        width: '100%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: "column",
-        
-        backgroundColor: 'black',
-
-        borderRadius: borderRadius,
-
-        //borderBottomWidth: borderWidth,
-        //borderBottomColor: 'white',
-    },
-
-    info_text:{     //Gambiarra alert!!!
-        fontSize: borderRadius/2.9,
-        fontWeight: '300',
-        color: '#FFF',
-    },
-
-    info_area_border_right: {
-        borderTopRightRadius: borderRadius,
-        borderBottomRightRadius: borderRadius,
-
-    },
-
-    info_area_border_left: {
-        borderTopLeftRadius: borderRadius,
-        borderBottomLeftRadius: borderRadius,
-
-    },
-
-//////////////// Área do player ////////////////
-
-    player_area: {
-        flex: 3,
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        marginHorizontal: '2.5%',
-
-    },
-
-    circle_player: {
-        flex: 1,
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '6%',
-
-        borderBottomWidth: borderWidth,
-        borderRadius: borderRadius,
-
-        backgroundColor: '#F92323',
-    },
-
-    button: {
-        height: '100%',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'transparent'
-    },
-
-    icon_play: {
-        color: 'white',
-        fontSize: borderRadius/1.3,
-        left: '4%',
-    },
-    icon_pause: {
-        color: 'white',
-        fontSize: borderRadius/1.3,
-    },
+  icon_play: {
+    color: 'white',
+    fontSize: borderRadius / 1.3,
+    left: '4%',
+  },
+  icon_pause: {
+    color: 'white',
+    fontSize: borderRadius / 1.3,
+  },
 });
 
 export default principal_style;
