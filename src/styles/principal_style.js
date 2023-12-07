@@ -7,10 +7,39 @@ const borderRadius = widthDimension * 0.15;
 const borderWidth = widthDimension * 0.015;
 
 const principal_style = StyleSheet.create({
+
+  result_container: {
+    top: '27%',
+    width: '60%',
+    height: '40%',
+    position: 'absolute',
+    zIndex: 4,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    flexDirection: 'column',
+
+    borderRadius: borderRadius / 3,
+
+
+    backgroundColor: '#F92323',
+  },
+
   principal_screen: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+
+  principal_screen_blur: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    zIndex: 3,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)'
+
   },
 
   container: {
@@ -21,6 +50,7 @@ const principal_style = StyleSheet.create({
 
   },
   map: {
+    zIndex: 1,
     width: '100%',
     height: '100%',
   },
@@ -28,7 +58,7 @@ const principal_style = StyleSheet.create({
     width: '50%',
     height: '10%',
     position: 'absolute',
-    zIndex: 1,
+    zIndex: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -37,8 +67,6 @@ const principal_style = StyleSheet.create({
     width: '100%',
     height: '100%',
     padding: 10,
-    borderTopWidth: 5,
-    borderTopColor: 'black',
     borderBottomEndRadius: borderRadius * 2,
     borderBottomStartRadius: borderRadius * 2,
     justifyContent: 'center',
@@ -88,7 +116,7 @@ const principal_style = StyleSheet.create({
   info_text: {
     fontSize: borderRadius / 2.9,
     fontWeight: '300',
-    color: '#FFF',
+    color: '#fff',
   },
 
   info_area_border_right: {

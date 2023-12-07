@@ -3,7 +3,6 @@ import { SafeAreaView, View, Image, TouchableOpacity, Text} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { requestForegroundPermissionsAsync} from "expo-location";
 import style_home from "../styles/home_style";
-import { useState } from "react";
 
 const Home = () => {
   const navigator = useNavigation();
@@ -35,11 +34,8 @@ const Home = () => {
             style={style_home.img}
             source={require('../images/undraw_bike.png')}
           />
-          <TouchableOpacity
-            style={style_home.button}
-            onPress={permission}
-          >
-            <Text>Permitir acesso a localização</Text>
+          <TouchableOpacity style={style_home.button} onPress={permission} >
+            <Text style={style_home.info_text}>Permitir acesso a localização</Text>
           </TouchableOpacity>
         </View>
       </View>

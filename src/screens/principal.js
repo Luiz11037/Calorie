@@ -99,13 +99,15 @@ const handleStopwatchStart = () => {
 
 const handleStopwatchReset = () => {
   
-  if (isPlaying)
+  if (!isPlaying)
   {
     setResetStopwatch(true);
     setIsStopwatchStart(false);
     setIsPlaying(false);
     setCoordinates([])
     setLocation(currentPosition)
+
+    setInfoTabVisible(!infoTabVisible);
 
   }
 }
@@ -117,6 +119,37 @@ useEffect(() => {
     headerShown: false,
   });
 }, [navigation]);
+
+// ABA DE INFORMAÇÕES =============================================================
+
+
+const Finish_Button = () => {
+  return (
+    <View style={principal_style.buttonContainer}>
+      <TouchableOpacity style={principal_style.testButton} onPress={() => handleStopwatchReset()}>
+        <Text style={principal_style.info_text}>Reset</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const [infoTabVisible, setInfoTabVisible] = useState(false);
+
+const InfoTab = () => {
+  return (
+    <View style={principal_style.result_container}>
+      <TouchableOpacity style={principal_style.infos_area}onPress={() => setInfoTabVisible(!infoTabVisible)}>
+        <Text style={principal_style.info_text}>Voltar</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const Blur = () => {
+  return (
+    <View style={principal_style.principal_screen_blur}></View>
+  );
+};
 
 return (
     <SafeAreaView style={principal_style.principal_screen}>
@@ -154,12 +187,14 @@ return (
           )}
         </View>
 
-        <View style={principal_style.buttonContainer}>
-          <TouchableOpacity style={principal_style.testButton} onPress={() => {console.log("Test button pressed: ", "\n"); handleStopwatchReset();}}>
-            <Text>Test</Text>
-          </TouchableOpacity>
-        </View>
+        {!isPlaying && <Finish_Button />}        
+
       </View>
+      
+      {infoTabVisible && <InfoTab />}
+      {infoTabVisible && <Blur />}
+      
+      
 
       <View style={principal_style.hud_area}>
         <View style={[principal_style.infos_area, principal_style.info_area_border_right]}>
@@ -173,7 +208,8 @@ return (
             <TouchableOpacity style={principal_style.button} onPress={() => {handleStopwatchStart(); togglePlayPause(); }}>
               {isPlaying
                 ? (<Icon name="pause" size={30} color="#3498db" style={principal_style.icon_pause} />)
-                : (<Icon name="play" size={30} color="#3498db" style={principal_style.icon_play} />)}
+                : (<Icon name="play" size={30} color="#3498db" style={principal_style.icon_play} />)
+              }
             </TouchableOpacity>
           </View>
         </View>

@@ -1,6 +1,11 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const widthDimension = Dimensions.get('window').width;
+const borderRadius = widthDimension * 0.15;
+const borderWidth = widthDimension * 0.015;
 
 const style_home = StyleSheet.create({
+    
     home_screen: {
         flex: 1,
         justifyContent: 'center',
@@ -27,33 +32,43 @@ const style_home = StyleSheet.create({
         backgroundColor: 'green',
     },
 
-    img: {
-        flex: 1,
-        height: 'auto',
-        width: '100%',
-    },
-
     area2: {
         flex: 1,
         justifyContent: 'space-between',
-        height: 'auto',
+        height: '100%',
         width: '100%',
-        backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
+
+        backgroundColor: '#fff',
     },
 
-    button: {
-
+    img: {
+        resizeMode: 'contain',
         flex: 1,
+        width: '100%',
+    },
+
+
+    button: {
+        flex: 1,
+        height: '10%',
+        width: '80%',
+        bottom: '12%',
+        position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '5%',
-        borderBottomWidth:10,
-        borderRadius: 10,
+        borderBottomWidth: borderWidth,
+        borderRadius: borderRadius,
 
         backgroundColor: '#F92323',
     },
+
+    info_text: {
+        fontSize: borderRadius / 3.6,
+        fontWeight: '400',
+        color: '#FFF',
+      },
 
     
 });
