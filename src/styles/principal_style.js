@@ -8,22 +8,6 @@ const borderWidth = widthDimension * 0.015;
 
 const principal_style = StyleSheet.create({
 
-  result_container: {
-    top: '27%',
-    width: '60%',
-    height: '40%',
-    position: 'absolute',
-    zIndex: 4,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    flexDirection: 'column',
-
-    borderRadius: borderRadius / 3,
-
-
-    backgroundColor: '#F92323',
-  },
-
   principal_screen: {
     flex: 1,
     justifyContent: 'space-between',
@@ -165,6 +149,52 @@ const principal_style = StyleSheet.create({
     color: 'white',
     fontSize: borderRadius / 1.3,
   },
+
+  result_container: {
+    top: '27%',
+    width: '80%',
+    height: '40%',
+    position: 'absolute',
+    zIndex: 4,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    borderRadius: borderRadius / 3,
+
+
+    backgroundColor: '#F92323',
+  },
+
+  back_button: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: borderRadius / 3,
+    backgroundColor: '#F92323',
+  },
+
+  finalinfoview: {
+    flex: 1,
+    width: '100%',
+    height: '10%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    gap: borderRadius / 3,
+    borderTopLeftRadius: borderRadius / 3,
+    borderTopRightRadius: borderRadius / 3,
+  },
+
+  finalinfoview_text: {
+    fontSize: borderRadius / 2.2,
+    color: 'white',
+  },
+
+  button_options: {
+    flex: 0.5,
+    flexDirection: 'row',
+    height: '5%',
+  },
+
 });
 
 export default principal_style;
